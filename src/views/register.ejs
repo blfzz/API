@@ -1,0 +1,25 @@
+<div class="form-v5-content">
+    <form class="form-detail" action="http://localhost:3000/register" method="post">
+        <h2>REGISTER</h2>
+        <div class="form-row">
+            <input type="text" name="firstname" id="firstname" class="input-text" placeholder="Your Firstname" required>
+        </div>
+        <div class="form-row">
+            <input type="text" name="lastname" id="lastname" class="input-text" placeholder="Your Lastname" required>
+        </div>
+        <div class="form-row">
+            <input type="text" name="username" id="username" class="input-text" placeholder="Your Username" required>
+        </div>
+        <div class="form-row">
+            <input type="text" name="email" id="email" class="input-text" placeholder="Your Email" required
+                pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+        </div>
+        <div class="form-row">
+            <input type="password" name="password" id="password" class="input-text" placeholder="Your Password"
+                required>
+        </div>
+        <div class="form-row-last">
+            <input type="submit" name="register" class="register" value="Register">
+        </div>
+    </form>
+</div>

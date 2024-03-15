@@ -1,0 +1,29 @@
+CREATE TABLE users (id INT PRIMARY KEY AUTO_INCREMENT, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, username VARCHAR(255) UNIQUE NOT NULL, email VARCHAR(255) UNIQUE NOT NULL, password VARCHAR(255) NOT NULL, otp VARCHAR(255) NOT NULL DEFAULT false, isAdmin BOOLEAN NOT NULL DEFAULT false, isEmailActive BOOLEAN NOT NULL DEFAULT false );
+
+DELETE FROM users WHERE id='1';
+
+
+
+CREATE TABLE users (id INT PRIMARY KEY AUTO_INCREMENT, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, username VARCHAR(255) UNIQUE NOT NULL, email VARCHAR(255) UNIQUE NOT NULL, password VARCHAR(255) NOT NULL, otp VARCHAR(255) NOT NULL DEFAULT false, isAdmin BOOLEAN NOT NULL DEFAULT false, isEmailActive BOOLEAN NOT NULL DEFAULT false, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_DATE(), updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_DATE() );
+
+
+
+CREATE TABLE IF NOT EXISTS `sessions` (`session_id` varchar(128) COLLATE utf8mb4_bin NOT NULL, `expires` int(11) unsigned NOT NULL, `data` mediumtext COLLATE utf8mb4_bin, PRIMARY KEY (`session_id`)) ENGINE=InnoDB
+
+
+CREATE TABLE otps (otp_id INT PRIMARY KEY AUTO_INCREMENT, hashedOtp VARCHAR(255) NOT NULL DEFAULT false, id INT, createdAt VARCHAR(255) NOT NULL, expiresAt VARCHAR(255) NOT NULL, FOREIGN KEY(id) REFERENCES users(id)); 
+
+
+Slow vmware:
+bcdedit /set hypervisorlaunchtype off
+
+
+Kali linux without 5 second delay
+
+1. nano /etc/default/grub
+
+2. GRUB_DEFAULT=0 | GRUB_TIMEOUT=0
+
+3. update-grub
+
+4. restart
